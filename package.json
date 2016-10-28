@@ -1,75 +1,20 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "react-native-uploader@git://github.com/g6ling/react-native-uploader.git",
-        "scope": null,
-        "escapedName": "react-native-uploader",
-        "name": "react-native-uploader",
-        "rawSpec": "git://github.com/g6ling/react-native-uploader.git",
-        "spec": "git://github.com/g6ling/react-native-uploader.git",
-        "type": "hosted",
-        "hosted": {
-          "type": "github",
-          "ssh": "git@github.com:g6ling/react-native-uploader.git",
-          "sshUrl": "git+ssh://git@github.com/g6ling/react-native-uploader.git",
-          "httpsUrl": "git+https://github.com/g6ling/react-native-uploader.git",
-          "gitUrl": "git://github.com/g6ling/react-native-uploader.git",
-          "shortcut": "github:g6ling/react-native-uploader",
-          "directUrl": "https://raw.githubusercontent.com/g6ling/react-native-uploader/master/package.json"
-        }
-      },
-      "F:\\Projects\\school\\school\\reactNative\\schoolApp"
-    ]
-  ],
-  "_from": "git://github.com/g6ling/react-native-uploader.git",
-  "_id": "react-native-uploader@0.0.10",
-  "_inCache": true,
-  "_installable": true,
-  "_location": "/react-native-uploader",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "react-native-uploader@git://github.com/g6ling/react-native-uploader.git",
-    "scope": null,
-    "escapedName": "react-native-uploader",
-    "name": "react-native-uploader",
-    "rawSpec": "git://github.com/g6ling/react-native-uploader.git",
-    "spec": "git://github.com/g6ling/react-native-uploader.git",
-    "type": "hosted",
-    "hosted": {
-      "type": "github",
-      "ssh": "git@github.com:g6ling/react-native-uploader.git",
-      "sshUrl": "git+ssh://git@github.com/g6ling/react-native-uploader.git",
-      "httpsUrl": "git+https://github.com/g6ling/react-native-uploader.git",
-      "gitUrl": "git://github.com/g6ling/react-native-uploader.git",
-      "shortcut": "github:g6ling/react-native-uploader",
-      "directUrl": "https://raw.githubusercontent.com/g6ling/react-native-uploader/master/package.json"
-    }
+  "name": "react-native-android-update",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/windwang/react-native-android-update.git"
   },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "git://github.com/g6ling/react-native-uploader.git#61d4b08aa20e25a7f4952cf8deccd2a05b6f931f",
-  "_shasum": "74e149a6edab9682823e71574cd7fed0692e8496",
-  "_shrinkwrap": null,
-  "_spec": "react-native-uploader@git://github.com/g6ling/react-native-uploader.git",
-  "_where": "F:\\Projects\\school\\school\\reactNative\\schoolApp",
+  "version": "0.0.10",
+  "description": "A React Native module to update android apk. Supports progress notification.",
   "author": {
-    "name": "Adam Roth",
-    "url": "aroth"
+    "name": "Wind Wang",
+    "url": "windwang"
   },
-  "bugs": {
-    "url": "https://github.com/aroth/react-native-uploader/issues"
-  },
-  "dependencies": {},
-  "description": "A React Native module to upload files and camera roll assets. Supports progress notification.",
-  "devDependencies": {},
-  "gitHead": "61d4b08aa20e25a7f4952cf8deccd2a05b6f931f",
-  "homepage": "https://github.com/aroth/react-native-uploader#readme",
+  "nativePackage": true,
   "keywords": [
     "react-native",
     "react-native-upload",
-    "react-component",
+		"react-component",
     "react",
     "native",
     "image",
@@ -77,21 +22,15 @@
     "transfer",
     "file"
   ],
-  "main": "index",
+  "bugs": {
+    "url": "https://github.com/windwang/react-native-android-update/issues"
+  },
+  "homepage": "https://github.com/windwang/react-native-android-update#readme",
   "maintainers": [
     {
-      "name": "aroth",
-      "email": "adamjroth@gmail.com"
+      "name": "windwang",
+      "email": "windwang@gmail.com"
     }
   ],
-  "name": "react-native-uploader",
-  "nativePackage": true,
-  "optionalDependencies": {},
-  "readme": "# react-native-uploader\r\nA React Native module for uploading files and camera roll assets. Supports progress notification.\r\n\r\n## Install\r\n### Use rnpm\r\n1. `npm install react-native-uploader --save`\r\n2. `rnpm link react-native-uploader`\r\n\r\n\r\nIf you don't want use rnpm, do this\r\n### iOS\r\n1. `npm install react-native-uploader --save`\r\n2. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`\r\n3. Go to `node_modules` ➜ `react-native-uploader` ➜ `RNUploader` and add `RNUploader.xcodeproj`\r\n4. In XCode, in the project navigator, select your project. Add `libRNUploader.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`\r\n5. Run your project (`Cmd+R`)\r\n\r\n### Android\r\n1. Add to your settings.gradle:\r\n```\r\ninclude ':RNFileTransfer', ':app'\r\nproject(':RNFileTransfer').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-file-transfer-android/android')\r\n```\r\n\r\n2. Add to your android/build.gradle:\r\n```\r\ndependencies {\r\n  ...\r\n  compile project(':RNFileTransfer')\r\n}\r\n```\r\n\r\n3. Add to MainActivity.java\r\n```\r\nimport com.burlap.filetransfer.FileTransferPackage;\r\n...\r\nmReactInstanceManager = ReactInstanceManager.builder()\r\n        .setApplication(getApplication())\r\n        .setBundleAssetName(\"index.android.bundle\")\r\n        .setJSMainModuleName(\"index.android\")\r\n        .addPackage(new MainReactPackage())\r\n        .addPackage(new FileTransferPackage())\r\n```\r\n\r\n## Example\r\nSee ./examples/UploadFromCameraRoll\r\n\r\n![Example](https://raw.githubusercontent.com/aroth/react-native-uploader/master/examples/UploadFromCameraRoll/uploader.gif)\r\n\r\n\r\n## Usage\r\n```javascript\r\nvar RNUploader = require('react-native-uploader');\r\n\r\nvar {\r\n\tStyleSheet, \r\n\tComponent,\r\n\tView,\r\n\tDeviceEventEmitter,\r\n} = React;\r\n```\r\n\r\n```javascript\r\ncomponentDidMount(){\r\n\t// upload progress\r\n\tDeviceEventEmitter.addListener('RNUploaderProgress', (data)=>{\r\n\t  let bytesWritten = data.totalBytesWritten;\r\n\t  let bytesTotal   = data.totalBytesExpectedToWrite;\r\n\t  let progress     = data.progress;\r\n\t  \r\n\t  console.log( \"upload progress: \" + progress + \"%\");\r\n\t});\r\n}\r\n```\r\n\r\n```javascript\r\ndoUpload(){\r\n\tlet files = [\r\n\t\t{\r\n\t\t\tname: 'file[]',\r\n\t\t\tfilename: 'image1.png',\r\n\t\t\tfilepath: 'assets-library://....',  // image from camera roll/assets library\r\n\t\t\tfiletype: 'image/png',\r\n\t\t},\r\n\t\t{\r\n\t\t\tname: 'file[]',\r\n\t\t\tfilename: 'image2.gif',\r\n\t\t\tfilepath: \"data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7\", // base64 only support ios\r\n\t\t\tfiletype: 'image/gif',\r\n\t\t},\r\n\t];\r\n\r\n\tlet opts = {\r\n\t\turl: 'http://my.server/api/upload',\r\n\t\tfiles: files, \r\n\t\tmethod: 'POST',                             // optional: POST or PUT, only support ios, android always have POST\r\n\t\theaders: { 'Accept': 'application/json' },  // optional, only support ios, android always have  { 'Accept': 'application/json' }\r\n\t\tparams: { 'user_id': 1 },                   // optional, Android support this only string. If you want this in Android use params: { 'user_id': '1' }\r\n\t};\r\n\r\n\tRNUploader.upload( opts, (err, response) => {\r\n\t\tif( err ){\r\n\t\t\tconsole.log(err);\r\n\t\t\treturn;\r\n\t\t}\r\n  \r\n\t\tlet status = response.status;\r\n\t\tlet responseString = response.data;\r\n\t\tlet json = JSON.parse( responseString );\r\n\r\n\t\tconsole.log('upload complete with status ' + status);\r\n\r\n\t\t// android's response is response.body.string.\r\n\t});\r\n}\r\n\r\n```\r\n\r\n## API\r\n#### RNUploader.upload( options, callback )\r\n\r\n`options` is an object with values:\r\n\r\n||type|required|description|example|\r\n|---|---|---|---|---|\r\n|`url`|string|required|URL to upload to|`http://my.server/api/upload`|\r\n|`method(only iOS)`|string|optional|HTTP method, values: [PUT,POST], default: POST|`POST`|\r\n|`headers(only iOS)`|object|optional|HTTP headers|`{ 'Accept': 'application/json' }`|\r\n|`params(iOS)`|object|optional|Query parameters|`{ 'user_id': 1  }`|\r\n|`params(Android)`|object|optional|Query parameters|`{ 'user_id': '1'  }`<br> only support string value. You can't use int, boolean, etc..|\r\n|`files`|array|required|Array of file objects to upload. See below.| `[{ name: 'file', filename: 'image1.png', filepath: 'assets-library://...', filetype: 'image/png' } ]` |\r\n\r\n`callback` is a method with two parameters:\r\n\r\n||type|description|example|\r\n|---|---|---|---|\r\n|error|string|String detailing the error|`A server with the specified hostname could not be found.`|\r\n|response(iOS)|object{status:Number, data:String}|Object returned with a status code and data.|`{ status: 200, data: '{ success: true }' }`|\r\n|response(Android)|String|String returned with responseBody.|`success: true`|\r\n\r\n\r\n#### `files`\r\n`files` is an array of objects with values:\r\n\r\n||type|required|description|example|\r\n|---|---|---|---|---|\r\n|name|string|optional|Form parameter key for the specified file. If missing, will use `filename`.|`file[]`|\r\n|filename|string|required|filename|`image1.png`|\r\n|filepath|string|required|File URI<br>Supports `assets-library:`, `data:` and `file:` URIs and file paths.|`assets-library://...(iOS)`<br>`content://...(Android)`<br>`data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOV...(only iOS)`<br>`file:/tmp/image1.png`<br>`/tmp/image1.png`|\r\n|filetype|string|optional|MIME type of file. If missing, will infer based on the extension in `filepath`.|`image/png`|\r\n\r\n### Progress (only support iOS)\r\nTo monitor upload progress simply subscribe to the `RNUploaderProgress` event using DeviceEventEmitter.\r\n\r\n```\r\nDeviceEventEmitter.addListener('RNUploaderProgress', (data)=>{\r\n  let bytesWritten = data.totalBytesWritten;\r\n  let bytesTotal   = data.totalBytesExpectedToWrite;\r\n  let progress     = data.progress;\r\n  \r\n  console.log( \"upload progress: \" + progress + \"%\");\r\n});\r\n```\r\n\r\n### Cancel (only support iOS)\r\nTo cancel an upload in progress:\r\n```\r\nRNUploader.cancel()\r\n```\r\n\r\n### Notes\r\n\r\nInspired by similiar projects:\r\n* https://github.com/booxood/react-native-file-upload\r\n* https://github.com/kamilkp/react-native-file-transfer\r\n\r\n...with noteable enhancements:\r\n* uploads are performed asynchronously on the native side\r\n* progress reporting\r\n* packaged as a static library\r\n* support for multiple files at a time\r\n* support for files from the assets library, base64 `data:` or `file:` paths \r\n* no external dependencies (ie: AFNetworking)\r\n* support Android\r\n\r\n## License\r\n\r\nMIT\r\n",
-  "readmeFilename": "README.md",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aroth/react-native-uploader.git"
-  },
-  "version": "0.0.10"
+  "main": "index"
 }
