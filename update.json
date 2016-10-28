@@ -1,0 +1,21 @@
+{
+    "updateInfo":{
+        "appName": "Sun361数字校园",
+        "appDescription": "Sun361数字校园",
+        "packageName": "com.sun361.app",
+        "versionCode": "1",
+        "versionName": "1.0",
+        "forceUpdate": false,
+        "autoUpdate": true,
+        "apkUrl": "http://www.sun361.com/apps/android/sun361/v1.0/app.apk",
+        "updateTips": {
+                "default": "update tips",
+                "en":  "update tips",
+                "zh":  "升级提示",
+                "zh_CN": "升级提示",
+                "zh_TW": "升級提示",
+               " zh_HK": "升级提示"
+           
+        }
+    }
+}
