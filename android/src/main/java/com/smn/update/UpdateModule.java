@@ -40,7 +40,7 @@ public class UpdateModule extends ReactContextBaseJavaModule {
                     .build();
 
 
-            manager.check(getCurrentActivity(), options);
+            manager.check(getCurrentActivity(), options,new UpdateListener());
         } catch (Exception ex) {
             Log.e("check update fail", ex);
         }
