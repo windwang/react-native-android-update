@@ -3,6 +3,8 @@ package com.smn.update;
 import com.facebook.react.bridge.*;
 
 import com.github.snowdream.android.app.*;
+import com.github.snowdream.android.util.Log;
+
 import java.util.Map;
 
 /**
@@ -21,20 +23,27 @@ public class UpdateModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public  void  hasNewVersion(final Promise promise){
+    public void hasNewVersion(final Promise promise) {
 
     }
 
     @ReactMethod
     public void update(String url) {
-        UpdateManager manager = new UpdateManager(getCurrentActivity());
-        UpdateOptions options = new UpdateOptions.Builder(getCurrentActivity())
-                .checkUrl(url)
-                .updateFormat(UpdateFormat.JSON)
-                .updatePeriod(new UpdatePeriod(UpdatePeriod.EACH_TIME))
-                .checkPackageName(true)
-                .build();
+        Log.d("check update：" + url);
+        try {
+            UpdateManager manager = new UpdateManager(getCurrentActivity());
+            UpdateOptions options = new UpdateOptions.Builder(getCurrentActivity())
+                    .checkUrl(url)
+                    .updateFormat(UpdateFormat.JSON)
+                    .updatePeriod(new UpdatePeriod(UpdatePeriod.EACH_TIME))
+                    .checkPackageName(true)
+                    .build();
 
-        manager.check(getCurrentActivity(), options);
+
+            manager.check(getCurrentActivity(), options);
+        } catch (Exception ex) {
+            Log.e("check update fail", ex);
+        }
+
     }
 }

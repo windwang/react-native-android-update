@@ -8,7 +8,7 @@ function update(url) {
 }
 
 function onAppStateChange(newState) {
-  newState === "active" && NativeRNUpdate.update(url)
+  newState === "active" && NativeRNUpdate.update(checkUrl)
 }
 
 function start(url) {
@@ -16,7 +16,7 @@ function start(url) {
     return;
   started = true;
   checkUrl = url;
-
+  update(url)
   AppState.addEventListener("change", onAppStateChange);
 }
 module.exports = {
