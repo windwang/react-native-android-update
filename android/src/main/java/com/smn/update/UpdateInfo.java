@@ -129,6 +129,8 @@ public class UpdateInfo {
     map.putString("versionName", getVersionName());
     map.putString("updateTip", getDefaultUpdateTip());
     map.putString("apkUrl", getApkUrl());
+    map.putBoolean("forceUpdate", getForceUpdate());
+    map.putBoolean("autoUpdate", getAutoUpdate());
     return map;
   }
 }
