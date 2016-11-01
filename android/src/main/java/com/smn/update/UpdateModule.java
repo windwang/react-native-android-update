@@ -161,10 +161,25 @@ public class UpdateModule extends ReactContextBaseJavaModule implements Lifecycl
 
   @Override
   public void onHostDestroy() {
-    getReactApplicationContext().unregisterReceiver(completeReceiver);
+    unRegisterReceiver();
+
+
+  }
+
+  private void unRegisterReceiver() {
+    try{
+      if(completeReceiver!=null){
+        getReactApplicationContext().unregisterReceiver(completeReceiver);
+        completeReceiver=null;
+
+      }
+    }catch (Exception ex){
+      Log.e("Update","unregisterReceiver failure",ex);
+    }
   }
 
   private void promptInstall(Uri data) {
+
     Intent promptInstall = new Intent(Intent.ACTION_VIEW)
       .setDataAndType(data, "application/vnd.android.package-archive");
     // FLAG_ACTIVITY_NEW_TASK 可以保证安装成功时可以正常打开 app
@@ -190,6 +205,7 @@ public class UpdateModule extends ReactContextBaseJavaModule implements Lifecycl
         if (DownloadManager.STATUS_SUCCESSFUL == c.getInt(columnIndex)) {
           // 获取下载好的 apk 路径
           String uriString = c.getString(c.getColumnIndex(DownloadManager.COLUMN_LOCAL_FILENAME));
+          unRegisterReceiver();
           // 提示用户安装
           promptInstall(Uri.parse("file://" + uriString));
         }
