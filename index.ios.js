@@ -1,18 +1,16 @@
-/**
- * @providesModule RNUploader
- * @flow
- */
 'use strict';
+import {NativeModules, AppState} from 'react-native'
+let NativeRNUpdate = NativeModules.RNUpdate
 
-
-/**
- * High-level docs for the RNUploader iOS API can be written here.
- */
-
-function start(url) {
-  
-
+function init(url) {
+  return Promise.resolve(null)
+}
+function getNewVersion(){
+	return Promise.resolve(null)
+}
+function update(){
+	
 }
 module.exports = {
-  start
+  init,getNewVersion,update
 }

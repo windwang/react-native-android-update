@@ -4,7 +4,7 @@
     "type": "git",
     "url": "git+https://github.com/windwang/react-native-android-update.git"
   },
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "A React Native module to update android apk. Supports progress notification.",
   "author": {
     "name": "Wind Wang",

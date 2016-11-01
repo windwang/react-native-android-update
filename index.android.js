@@ -2,10 +2,15 @@
 import {NativeModules, AppState} from 'react-native'
 let NativeRNUpdate = NativeModules.RNUpdate
 
-function start(url) {
-  NativeRNUpdate.update(url);
-
+function init(url) {
+  return NativeRNUpdate.init(url);
+}
+function getNewVersion(){
+	return NativeRNUpdate.getNewVersion()
+}
+function update(){
+	return NativeRNUpdate.update()
 }
 module.exports = {
-  start
+  init,getNewVersion,update
 }
