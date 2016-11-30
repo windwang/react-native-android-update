@@ -136,7 +136,7 @@ public class UpdateModule extends ReactContextBaseJavaModule implements Lifecycl
       downloadManager = (DownloadManager) getReactApplicationContext().getSystemService(DOWNLOAD_SERVICE);
       Log.d("Update", "downloadurl:" + updateInfo.getApkUrl());
       DownloadManager.Request request = new DownloadManager.Request(Uri.parse(updateInfo.getApkUrl()));
-      request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI);
+      //request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI);
       request.setDestinationInExternalPublicDir("Download", updateInfo.getPackageName() + ".apk");
       request.setMimeType("application/vnd.android.package-archive");
       request.setTitle(updateInfo.getAppName());
