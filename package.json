@@ -20,8 +20,9 @@
     "image",
     "upload",
     "transfer",
-    "file"
+    "file" 
   ],
+  
   "bugs": {
     "url": "https://github.com/windwang/react-native-android-update/issues"
   },
