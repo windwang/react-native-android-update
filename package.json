@@ -4,7 +4,7 @@
     "type": "git",
     "url": "git+https://github.com/windwang/react-native-android-update.git"
   },
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "A React Native module to update android apk. Supports progress notification.",
   "author": {
     "name": "Wind Wang",
@@ -13,14 +13,11 @@
   "nativePackage": true,
   "keywords": [
     "react-native",
-    "react-native-upload",
+    "react-native-update",
 		"react-component",
     "react",
     "native",
-    "image",
-    "upload",
-    "transfer",
-    "file" 
+    "update"
   ],
   
   "bugs": {
