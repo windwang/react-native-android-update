@@ -1,34 +1,24 @@
 package com.smn.update;
 
-import com.facebook.react.bridge.*;
-import com.github.kevinsawicki.http.HttpRequest;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-
-import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
-import android.widget.Toast;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Map;
-
-import static android.content.Context.DOWNLOAD_SERVICE;
+import com.facebook.react.bridge.LifecycleEventListener;
+import com.facebook.react.bridge.Promise;
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReactContextBaseJavaModule;
+import com.facebook.react.bridge.ReactMethod;
+import com.github.kevinsawicki.http.HttpRequest;
+import com.google.gson.Gson;
+import com.loveplusplus.update.Constants;
+import com.loveplusplus.update.DownloadService;
 
 /**
  * Created by wwm on 2016-10-28.
@@ -85,7 +75,7 @@ public class UpdateModule extends ReactContextBaseJavaModule implements Lifecycl
                 promise.resolve(getUpdateInfo().toMap());
             else
                 promise.resolve(null);
-            
+
         } else {
             promise.resolve(null);
         }
@@ -134,24 +124,30 @@ public class UpdateModule extends ReactContextBaseJavaModule implements Lifecycl
 
     private void doUpdate() {
         Log.d("Update", "check update：" + url);
-        try {
 
-            UpdateInfo updateInfo = getUpdateInfo();
-            if (completeReceiver == null) completeReceiver = new DownloadCompleteReceiver();
-            getReactApplicationContext().registerReceiver(completeReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
-            downloadManager = (DownloadManager) getReactApplicationContext().getSystemService(DOWNLOAD_SERVICE);
-            Log.d("Update", "downloadurl:" + updateInfo.getApkUrl());
-            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(updateInfo.getApkUrl()));
-            //request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI);
-            request.setDestinationInExternalPublicDir("Download", updateInfo.getPackageName() + ".apk");
-            request.setMimeType("application/vnd.android.package-archive");
-            request.setTitle(updateInfo.getAppName());
-            downloadId = downloadManager.enqueue(request);
-        } catch (Exception ex) {
-            Log.e("Update", "check update failure", ex);
-            Log.e("Update", ex.getMessage());
-            Log.e("Update", ex.toString());
-        }
+        UpdateInfo updateInfo = getUpdateInfo();
+        Intent intent = new Intent(this.getCurrentActivity(), DownloadService.class);
+        intent.putExtra(Constants.APK_DOWNLOAD_URL, updateInfo.getApkUrl());
+        getCurrentActivity().startService(intent);
+
+//        try {
+//
+//            UpdateInfo updateInfo = getUpdateInfo();
+//            if (completeReceiver == null) completeReceiver = new DownloadCompleteReceiver();
+//            getReactApplicationContext().registerReceiver(completeReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+//            downloadManager = (DownloadManager) getReactApplicationContext().getSystemService(DOWNLOAD_SERVICE);
+//            Log.d("Update", "downloadurl:" + updateInfo.getApkUrl());
+//            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(updateInfo.getApkUrl()));
+//            //request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI);
+//            request.setDestinationInExternalPublicDir("Download", updateInfo.getPackageName() + ".apk");
+//            request.setMimeType("application/vnd.android.package-archive");
+//            request.setTitle(updateInfo.getAppName());
+//            downloadId = downloadManager.enqueue(request);
+//        } catch (Exception ex) {
+//            Log.e("Update", "check update failure", ex);
+//            Log.e("Update", ex.getMessage());
+//            Log.e("Update", ex.toString());
+//        }
     }
 
 
